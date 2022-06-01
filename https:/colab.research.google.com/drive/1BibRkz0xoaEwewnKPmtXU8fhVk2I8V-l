@@ -1,0 +1,45 @@
+
+prateleira = ["Tomate....4.75R$", "Limão.....1.99R$", "Laranja...2.35R$", "Uva.......5.00R$", "Maçã......4.99R$", "Manga.....2.89R$", "Cebola....2.39R$", "Coentro...0.99R$", "Cenoura...3.00R$", "Mamão.....1.99R$", "Abacate..7.89R$"]
+carrinho = []
+
+def lista_opcoes():
+    print("\n----BEM VINDO AO SACOLÃO DA CHEPA----")
+    print("\nEscolha uma das opções abaixo.")
+    while True:
+        print("\n[A]dicionar item")
+        print("[R]emover item")
+        print("[S]air")
+        opcao = input("Digite a opção: ")
+        if opcao.upper() == "A":
+            adiciona_item()
+            listar_carrinho()
+        elif opcao.upper() == "R":
+            remove_item()
+            listar_carrinho()
+        elif opcao.upper() == "S":
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida. Digite A, R ou S.")
+  
+def adiciona_item():
+    print("\nEscolha um dos ítens da nossa prateleira.")
+    for item in range(len(prateleira)):
+        print(str(item) + "." + prateleira[item])
+    item_escolhido = input("\nAgora digite o código do item para adicioná-lo ao seu carrinho: ")
+    
+    carrinho.append(prateleira[int(item_escolhido)])
+  
+def remove_item():
+    print("Escolha um dos ítens para remover")
+    for item in range(len(carrinho)):
+        print(str(item) + "." + carrinho[item])
+    item_removido = input("Agora digite o código do item para remover do seu carrinho: ")
+    
+    carrinho.remove(carrinho[int(item_removido)])
+  
+def listar_carrinho():
+    for item in range(len(carrinho)):
+      print(str(item) + "." + carrinho[item])
+  
+lista_opcoes()
